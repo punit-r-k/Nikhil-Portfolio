@@ -1422,23 +1422,6 @@ body[data-score-src] main > .section:not(.section--navy) .program-notes {
   border: 0;
 }
 
-.work-performance {
-  margin: 0 0 clamp(42px, 6vw, 72px);
-}
-
-.work-performance img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: 1px solid var(--line-strong);
-}
-
-.work-performance figcaption {
-  margin-top: 10px;
-  color: var(--muted);
-  font-size: 0.78rem;
-}
-
 .media-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
