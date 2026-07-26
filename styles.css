@@ -1287,6 +1287,11 @@ body[data-score-src] main > .section:not(.section--navy) .program-notes {
   font-size: 0.85rem;
 }
 
+.media-links-section .media-card__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
 .media-links-section .media-card h2 {
   margin: 0 0 14px;
   font-size: 1.75rem;
