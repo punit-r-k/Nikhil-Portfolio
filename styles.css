@@ -2044,6 +2044,112 @@ body[data-score-src] main > .section:not(.section--navy) .program-notes {
   }
 }
 
+/* Compact individual work pages */
+.work-page .page-hero,
+body[data-score-src] .page-hero {
+  min-height: 230px;
+  padding-block: 46px 38px;
+}
+
+.work-page .page-hero h1,
+body[data-score-src] .page-hero h1 {
+  margin-bottom: 10px;
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+}
+
+.work-page main > .section,
+body[data-score-src] main > .section {
+  padding-block: clamp(48px, 5vw, 72px);
+}
+
+.work-page .work-detail,
+body[data-score-src] .work-detail {
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: clamp(32px, 4vw, 58px);
+}
+
+.work-page .work-detail__content,
+body[data-score-src] .work-detail__content {
+  width: 100%;
+  max-width: 850px;
+}
+
+.work-page .work-detail__content h2,
+body[data-score-src] .work-detail__content h2 {
+  margin-bottom: 18px;
+  font-size: clamp(2.25rem, 4vw, 3.6rem);
+}
+
+.work-page .program-notes,
+body[data-score-src] .program-notes {
+  max-width: 850px;
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  line-height: 1.42;
+}
+
+.work-page .program-notes--long,
+body[data-score-src] .program-notes--long {
+  font-size: 0.98rem;
+  line-height: 1.62;
+}
+
+.work-page .media-embed--score,
+.work-page .media-embed object {
+  min-height: 430px;
+}
+
+.work-page .back-link,
+body[data-score-src] .back-link {
+  margin-top: 22px;
+}
+
+@media (max-width: 860px) {
+  .work-page .work-detail,
+  body[data-score-src] .work-detail {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .work-page .page-hero,
+  body[data-score-src] .page-hero {
+    min-height: 210px;
+    padding-block: 42px 34px;
+  }
+
+  .work-page main > .section,
+  body[data-score-src] main > .section {
+    padding-block: 44px;
+  }
+
+  .work-page .media-embed--score,
+  .work-page .media-embed object {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 640px) {
+  .work-page .page-hero,
+  body[data-score-src] .page-hero {
+    min-height: 190px;
+    padding-block: 36px 30px;
+  }
+
+  .work-page main > .section,
+  body[data-score-src] main > .section {
+    padding-block: 36px;
+  }
+
+  .work-page .work-detail__content h2,
+  body[data-score-src] .work-detail__content h2 {
+    margin-bottom: 14px;
+  }
+
+  .work-page .media-embed--score,
+  .work-page .media-embed object {
+    min-height: 300px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
