@@ -49,7 +49,18 @@
               <figcaption>Nikhil Murali conducting the orchestra</figcaption>
             </figure>
             <h2>Software-Generated Audio</h2>
-            <div class="media-embed media-embed--audio"><audio controls preload="metadata"><source src="assets/audio/dreams-of-flight.mp3" type="audio/mpeg">Your browser does not support embedded audio.</audio></div>
+            <div class="audio-player" data-audio-player>
+              <audio preload="metadata"><source src="assets/audio/dreams-of-flight.mp3" type="audio/mpeg">Your browser does not support embedded audio.</audio>
+              <button class="audio-player__toggle" type="button" aria-label="Play Dreams of Flight"><span aria-hidden="true">▶</span></button>
+              <div class="audio-player__body">
+                <div class="audio-player__meta"><strong>Dreams of Flight</strong><span>Software-generated performance</span></div>
+                <div class="audio-player__controls">
+                  <span class="audio-player__time" data-audio-current>0:00</span>
+                  <input class="audio-player__seek" data-audio-seek type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek through Dreams of Flight">
+                  <span class="audio-player__time" data-audio-duration>0:00</span>
+                </div>
+              </div>
+            </div>
             <a class="text-link" href="assets/audio/dreams-of-flight.mp3" download>Download audio file</a>
           </div>
         </div>

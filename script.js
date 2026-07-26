@@ -82,6 +82,56 @@ worksViewButtons.forEach((button) => {
   });
 });
 
+const formatAudioTime = (seconds) => {
+  if (!Number.isFinite(seconds)) return "0:00";
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60);
+  return `${minutes}:${String(remainingSeconds).padStart(2, "0")}`;
+};
+
+document.querySelectorAll("[data-audio-player]").forEach((player) => {
+  const audio = player.querySelector("audio");
+  const toggle = player.querySelector(".audio-player__toggle");
+  const toggleIcon = toggle.querySelector("span");
+  const seek = player.querySelector("[data-audio-seek]");
+  const currentTime = player.querySelector("[data-audio-current]");
+  const duration = player.querySelector("[data-audio-duration]");
+
+  const updateToggle = () => {
+    const isPlaying = !audio.paused;
+    toggle.setAttribute("aria-pressed", String(isPlaying));
+    toggle.setAttribute("aria-label", `${isPlaying ? "Pause" : "Play"} Dreams of Flight`);
+    toggleIcon.textContent = isPlaying ? "Ⅱ" : "▶";
+  };
+
+  toggle.addEventListener("click", () => {
+    if (audio.paused) audio.play();
+    else audio.pause();
+  });
+
+  const updateDuration = () => {
+    duration.textContent = formatAudioTime(audio.duration);
+  };
+
+  audio.addEventListener("loadedmetadata", updateDuration);
+  audio.addEventListener("durationchange", updateDuration);
+
+  audio.addEventListener("timeupdate", () => {
+    currentTime.textContent = formatAudioTime(audio.currentTime);
+    seek.value = audio.duration ? String((audio.currentTime / audio.duration) * 100) : "0";
+  });
+
+  seek.addEventListener("input", () => {
+    if (audio.duration) audio.currentTime = (Number(seek.value) / 100) * audio.duration;
+  });
+
+  audio.addEventListener("play", updateToggle);
+  audio.addEventListener("pause", updateToggle);
+  audio.addEventListener("ended", updateToggle);
+  if (audio.readyState >= 1) updateDuration();
+  updateToggle();
+});
+
 const scoreSource = document.body.dataset.scoreSrc;
 const scoreSlot = document.querySelector(".score-slot");
 
