@@ -245,7 +245,7 @@ main {
 }
 
 .eyebrow {
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 10px;
   margin: 0 0 19px;
