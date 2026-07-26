@@ -1293,7 +1293,16 @@ body[data-score-src] main > .section:not(.section--navy) .program-notes {
 }
 
 .media-links-section .media-card:nth-child(2) .media-card__icon {
-  background: url("assets/linket-logo.png") center / 27px auto no-repeat;
+  background: none;
+}
+
+.media-links-section .media-card:nth-child(2) .media-card__icon::before {
+  width: 22px;
+  height: 22px;
+  background: currentColor;
+  content: "";
+  -webkit-mask: url("assets/linket-logo.png") center / contain no-repeat;
+  mask: url("assets/linket-logo.png") center / contain no-repeat;
 }
 
 .media-links-section .media-card:nth-child(2) .media-card__icon svg {
