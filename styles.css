@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
 
 :root {
   --ink: #120304;
@@ -11,7 +11,7 @@
   --line: rgba(251, 254, 249, 0.14);
   --line-strong: rgba(251, 254, 249, 0.25);
   --shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
-  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --serif: "EB Garamond", Georgia, "Times New Roman", serif;
   --sans: "DM Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --container: 1200px;
   --header-height: 78px;

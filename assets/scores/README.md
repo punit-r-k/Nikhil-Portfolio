@@ -10,5 +10,6 @@ Add published score PDFs to this folder using these exact filenames:
 - `silver-skyline.pdf`
 - `midnight-flames.pdf`
 - `a-cottage-in-the-woods.pdf`
+- `dreams-of-flight.pdf`
 
 When the website is served, a work page automatically displays an “Open score PDF” button if its matching file exists.
