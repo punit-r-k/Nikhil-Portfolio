@@ -3,8 +3,8 @@
 :root {
   --ink: #111114;
   --navy: #0e1428;
-  --paper: #fbfef9;
-  --blush: #faf0f0;
+  --paper: #f1f0ec;
+  --blush: #e7e4de;
   --teal: #227c9d;
   --teal-light: #56a9c8;
   --muted: rgba(250, 240, 240, 0.67);
@@ -1400,7 +1400,7 @@ body[data-score-src] main > .section:not(.section--navy) .program-notes {
   border: 1px solid rgba(14, 20, 40, 0.26);
   border-radius: 2px;
   outline: none;
-  background: #f1f2ef;
+  background: #e5e4e0;
   transition: border-color 180ms ease, background 180ms ease;
 }
 
@@ -1420,7 +1420,7 @@ body[data-score-src] main > .section:not(.section--navy) .program-notes {
 .field textarea:focus,
 .field select:focus {
   border-color: var(--teal);
-  background: #ffffff;
+  background: #f7f6f2;
 }
 
 .field select option {
