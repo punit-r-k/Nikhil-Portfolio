@@ -1139,6 +1139,10 @@ h3 {
   color: var(--muted);
 }
 
+.score-slot__button {
+  margin-top: 28px;
+}
+
 .back-link {
   margin-top: 32px;
 }

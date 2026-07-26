@@ -54,6 +54,31 @@ document.querySelectorAll("[data-year]").forEach((element) => {
   element.textContent = new Date().getFullYear();
 });
 
+const scoreSource = document.body.dataset.scoreSrc;
+const scoreSlot = document.querySelector(".score-slot");
+
+if (scoreSource && scoreSlot && window.location.protocol !== "file:") {
+  fetch(scoreSource, { method: "HEAD" })
+    .then((response) => {
+      if (!response.ok) return;
+
+      const scoreTitle = document.title.split(" — ")[0];
+      const scoreDescription = scoreSlot.querySelector("p");
+      if (scoreDescription) {
+        scoreDescription.textContent = `View or download the published score for ${scoreTitle}.`;
+      }
+
+      const scoreLink = document.createElement("a");
+      scoreLink.className = "button button--primary score-slot__button";
+      scoreLink.href = scoreSource;
+      scoreLink.target = "_blank";
+      scoreLink.rel = "noreferrer";
+      scoreLink.textContent = "Open score PDF";
+      scoreSlot.append(scoreLink);
+    })
+    .catch(() => {});
+}
+
 const revealItems = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
