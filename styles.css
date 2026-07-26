@@ -1350,8 +1350,9 @@ body[data-score-src] main > .section:not(.section--navy) .program-notes {
 
 .contact-form {
   padding: clamp(26px, 4vw, 50px);
-  border: 1px solid var(--line);
-  background: rgba(251, 254, 249, 0.035);
+  color: var(--navy);
+  border: 1px solid var(--paper);
+  background: var(--paper);
 }
 
 .form-row {
@@ -1367,7 +1368,7 @@ body[data-score-src] main > .section:not(.section--navy) .program-notes {
 .field label {
   display: block;
   margin-bottom: 8px;
-  color: rgba(251, 254, 249, 0.72);
+  color: rgba(14, 20, 40, 0.72);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -1378,11 +1379,11 @@ body[data-score-src] main > .section:not(.section--navy) .program-notes {
 .field textarea,
 .field select {
   width: 100%;
-  color: var(--paper);
-  border: 1px solid var(--line-strong);
+  color: var(--navy);
+  border: 1px solid rgba(14, 20, 40, 0.26);
   border-radius: 2px;
   outline: none;
-  background: rgba(14, 20, 40, 0.38);
+  background: #f1f2ef;
   transition: border-color 180ms ease, background 180ms ease;
 }
 
@@ -1401,18 +1402,18 @@ body[data-score-src] main > .section:not(.section--navy) .program-notes {
 .field input:focus,
 .field textarea:focus,
 .field select:focus {
-  border-color: var(--teal-light);
-  background: rgba(14, 20, 40, 0.66);
+  border-color: var(--teal);
+  background: #ffffff;
 }
 
 .field select option {
-  color: var(--paper);
-  background: var(--navy);
+  color: var(--navy);
+  background: var(--paper);
 }
 
 .form-note {
   margin: 16px 0 0;
-  color: var(--muted);
+  color: rgba(14, 20, 40, 0.62);
   font-size: 0.76rem;
 }
 
