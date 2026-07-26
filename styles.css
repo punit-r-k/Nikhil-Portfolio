@@ -1292,6 +1292,14 @@ body[data-score-src] main > .section:not(.section--navy) .program-notes {
   height: 20px;
 }
 
+.media-links-section .media-card:nth-child(2) .media-card__icon {
+  background: url("assets/linket-logo.png") center / 27px auto no-repeat;
+}
+
+.media-links-section .media-card:nth-child(2) .media-card__icon svg {
+  display: none;
+}
+
 .media-links-section .media-card h2 {
   margin: 0 0 14px;
   font-size: 1.75rem;
