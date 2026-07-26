@@ -856,9 +856,9 @@ body[data-score-src] .page-hero h1 {
 .page-hero {
   position: relative;
   display: flex;
-  min-height: 58svh;
+  min-height: clamp(300px, 38svh, 430px);
   align-items: end;
-  padding-block: clamp(90px, 12vw, 160px) clamp(64px, 8vw, 104px);
+  padding-block: clamp(64px, 8vw, 96px) clamp(44px, 5vw, 64px);
   border-bottom: 1px solid var(--line);
 }
 
@@ -874,7 +874,7 @@ body[data-score-src] .page-hero h1 {
 
 .page-hero h1 {
   margin-bottom: 20px;
-  font-size: clamp(3.8rem, 8vw, 7.2rem);
+  font-size: clamp(3.2rem, 7vw, 6rem);
 }
 
 .page-hero .lede {
@@ -1834,9 +1834,9 @@ body[data-score-src] main > .section:not(.section--navy) .program-notes {
   }
 
   .page-hero {
-    min-height: 52svh;
-    align-items: center;
-    padding-block: 85px;
+    min-height: 300px;
+    align-items: end;
+    padding-block: 64px 54px;
   }
 
   .page-count {
