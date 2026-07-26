@@ -54,6 +54,34 @@ document.querySelectorAll("[data-year]").forEach((element) => {
   element.textContent = new Date().getFullYear();
 });
 
+document.querySelectorAll("h1, h2, h3").forEach((heading) => {
+  const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
+  const textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+  for (let index = textNodes.length - 1; index >= 0; index -= 1) {
+    const node = textNodes[index];
+    if (!node.textContent.trim()) continue;
+    node.textContent = node.textContent.replace(/\.\s*$/, "");
+    break;
+  }
+});
+
+const worksViewButtons = document.querySelectorAll("[data-works-view]");
+const worksPanels = document.querySelectorAll("[data-works-panel]");
+
+worksViewButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const selectedView = button.dataset.worksView;
+    worksViewButtons.forEach((item) => {
+      item.setAttribute("aria-pressed", String(item === button));
+    });
+    worksPanels.forEach((panel) => {
+      panel.hidden = panel.dataset.worksPanel !== selectedView;
+    });
+  });
+});
+
 const scoreSource = document.body.dataset.scoreSrc;
 const scoreSlot = document.querySelector(".score-slot");
 
