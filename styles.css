@@ -1312,6 +1312,41 @@ body[data-score-src] main > .section:not(.section--navy) .program-notes {
   margin-top: 32px;
 }
 
+.work-inquiry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-top: clamp(38px, 5vw, 64px);
+  padding-top: 28px;
+  border-top: 1px solid currentColor;
+}
+
+.work-inquiry strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2.15rem);
+  font-weight: 500;
+}
+
+.work-inquiry strong em {
+  font-style: italic;
+}
+
+.work-inquiry p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.section--paper .work-inquiry {
+  border-color: rgba(14, 20, 40, 0.18);
+}
+
+.section--paper .work-inquiry p {
+  color: rgba(14, 20, 40, 0.65);
+}
+
 .media-embed {
   width: 100%;
   overflow: hidden;
@@ -2273,6 +2308,18 @@ body[data-score-src] .back-link {
   .audio-player__controls {
     grid-template-columns: 34px minmax(0, 1fr) 34px;
     gap: 8px;
+  }
+
+  .work-inquiry {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 22px;
+  }
+
+  .work-inquiry .button {
+    width: 100%;
+    text-align: center;
   }
 }
 

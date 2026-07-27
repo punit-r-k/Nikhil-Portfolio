@@ -157,6 +157,21 @@ if (scoreSource && scoreSlot && window.location.protocol !== "file:") {
     .catch(() => {});
 }
 
+const workPage = document.body.classList.contains("work-page") || Boolean(document.body.dataset.scoreSrc);
+
+if (workPage) {
+  const workTitle = document.querySelector(".page-hero h1")?.textContent.trim();
+  const finalSection = document.querySelector("main > .section:last-of-type");
+  const backLink = finalSection?.querySelector(".back-link");
+
+  if (workTitle && finalSection) {
+    const inquiry = document.createElement("div");
+    inquiry.className = "container work-inquiry reveal";
+    inquiry.innerHTML = `<div><strong>Interested in <em>${workTitle}</em>?</strong><p>Ask the composer about acquiring the score and performance materials.</p></div><a class="button button--primary" href="contact.html?piece=${encodeURIComponent(workTitle)}#contact-form">Inquire about this piece</a>`;
+    finalSection.insertBefore(inquiry, backLink || null);
+  }
+}
+
 const revealItems = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -181,6 +196,18 @@ const contactForm = document.querySelector("[data-contact-form]");
 const formStatus = document.querySelector("[data-form-status]");
 
 if (contactForm) {
+  const query = new URLSearchParams(window.location.search);
+  const piece = query.get("piece")?.trim();
+  const projectField = contactForm.elements.namedItem("project");
+  const subjectField = contactForm.elements.namedItem("subject");
+  const messageField = contactForm.elements.namedItem("message");
+
+  if (piece) {
+    projectField.value = "Performance or score";
+    subjectField.value = `Score acquisition inquiry — ${piece}`;
+    messageField.value = `I am interested in acquiring ${piece} from the composer. Please share the available score and performance materials.`;
+  }
+
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -190,8 +217,9 @@ if (contactForm) {
     const name = String(data.get("name") || "").trim();
     const email = String(data.get("email") || "").trim();
     const project = String(data.get("project") || "General inquiry");
+    const submittedSubject = String(data.get("subject") || "").trim();
     const message = String(data.get("message") || "").trim();
-    const subject = `Portfolio inquiry from ${name}`;
+    const subject = submittedSubject || `Portfolio inquiry from ${name}`;
     const body = [
       `Name: ${name}`,
       `Email: ${email}`,
