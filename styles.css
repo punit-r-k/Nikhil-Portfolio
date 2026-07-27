@@ -1183,6 +1183,25 @@ body[data-score-src] .work-detail__content h2 .display-italic {
   text-transform: none;
 }
 
+.piece-link .piece-title {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  color: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.piece-link .piece-title small {
+  color: rgba(14, 20, 40, 0.54);
+  font-family: var(--sans);
+  font-size: 0.66rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .works-chronological {
   border-top: 1px solid rgba(14, 20, 40, 0.2);
 }
@@ -2051,6 +2070,12 @@ body[data-score-src] main > .section:not(.section--navy) .program-notes {
     align-items: baseline;
     flex-direction: row;
     gap: 10px;
+  }
+
+  .works-catalogue .piece-title {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
   }
 
   .page-hero {
