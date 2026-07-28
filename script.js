@@ -97,10 +97,11 @@ document.querySelectorAll("[data-audio-player]").forEach((player) => {
   const currentTime = player.querySelector("[data-audio-current]");
   const duration = player.querySelector("[data-audio-duration]");
 
+  const audioTitle = player.querySelector(".audio-player__meta strong")?.textContent.trim() || "audio";
   const updateToggle = () => {
     const isPlaying = !audio.paused;
     toggle.setAttribute("aria-pressed", String(isPlaying));
-    toggle.setAttribute("aria-label", `${isPlaying ? "Pause" : "Play"} Dreams of Flight`);
+    toggle.setAttribute("aria-label", `${isPlaying ? "Pause" : "Play"} ${audioTitle}`);
     toggleIcon.textContent = isPlaying ? "Ⅱ" : "▶";
   };
 
