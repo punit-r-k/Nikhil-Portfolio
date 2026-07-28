@@ -1166,7 +1166,7 @@ body[data-score-src] .work-detail__content h2 .display-italic {
   font-size: clamp(1.25rem, 3vw, 1.7rem);
 }
 
-.piece-link span {
+.piece-link > span:not(.piece-title) {
   color: var(--muted);
   font-size: 0.66rem;
   font-weight: 600;
@@ -1188,8 +1188,20 @@ body[data-score-src] .work-detail__content h2 .display-italic {
   align-items: baseline;
   gap: 10px;
   color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
   letter-spacing: 0;
   text-transform: none;
+}
+
+.piece-link .piece-title small {
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
   .piece-link .piece-title em {
@@ -1215,7 +1227,8 @@ body[data-score-src] .work-detail__content h2 .display-italic {
   border-color: rgba(14, 20, 40, 0.14);
 }
 
-.section--paper .piece-link span {
+.section--paper .piece-link > span:not(.piece-title),
+.section--paper .piece-link .piece-title small {
   color: rgba(14, 20, 40, 0.6);
 }
 
