@@ -1624,6 +1624,10 @@ body[data-score-src] main > .section:not(.section--navy) .program-notes {
   overflow-anchor: none;
 }
 
+#contact-section {
+  scroll-margin-top: var(--header-height);
+}
+
 .contact-copy {
   position: sticky;
   top: calc(var(--header-height) + 42px);
