@@ -247,7 +247,12 @@ if (contactForm) {
         contactForm.classList.add("is-sent");
         const contactSection = document.querySelector("#contact-section");
         const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        requestAnimationFrame(() => contactSection?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" }));
+        requestAnimationFrame(() => {
+          if (!contactSection) return;
+          const headerHeight = document.querySelector(".site-header")?.offsetHeight || 0;
+          const sectionTop = contactSection.getBoundingClientRect().top + window.scrollY - headerHeight;
+          window.scrollTo({ top: sectionTop, behavior: reducedMotion ? "auto" : "smooth" });
+        });
       })
       .catch((error) => { if (formStatus) formStatus.textContent = error.message; })
       .finally(() => { if (submitButton) submitButton.disabled = false; });
