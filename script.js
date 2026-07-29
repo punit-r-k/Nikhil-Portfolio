@@ -240,9 +240,13 @@ if (contactForm) {
       .then(async (response) => {
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(result.error || "Unable to send your message.");
+        const contactGrid = contactForm.closest(".contact-grid");
+        if (contactGrid) contactGrid.style.minHeight = `${contactGrid.offsetHeight}px`;
         contactForm.reset();
+        if (formStatus) {
+          formStatus.innerHTML = `<span class="form-status__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6.5 12.5 3.4 3.4 7.6-8"/></svg></span><span class="form-status__copy"><strong>Message sent</strong><span>Your message is on its way. A copy should arrive in your inbox shortly.</span></span>`;
+        }
         contactForm.classList.add("is-sent");
-        if (formStatus) formStatus.textContent = "Message sent. A copy has been emailed to you.";
       })
       .catch((error) => { if (formStatus) formStatus.textContent = error.message; })
       .finally(() => { if (submitButton) submitButton.disabled = false; });
