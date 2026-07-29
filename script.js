@@ -233,6 +233,17 @@ if (contactForm) {
       formStatus.textContent = "Opening your email app with this message prepared…";
     }
 
-    window.location.href = `mailto:Nikhil.murali103@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const submitButton = contactForm.querySelector("button[type=submit]");
+    if (formStatus) formStatus.textContent = "Sending your message...";
+    if (submitButton) submitButton.disabled = true;
+    fetch(contactForm.action, { method: "POST", headers: { Accept: "application/json", "Content-Type": "application/json" }, body: JSON.stringify(Object.fromEntries(data)) })
+      .then(async (response) => {
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || "Unable to send your message.");
+        contactForm.reset();
+        if (formStatus) formStatus.textContent = "Message sent. A copy has been emailed to you.";
+      })
+      .catch((error) => { if (formStatus) formStatus.textContent = error.message; })
+      .finally(() => { if (submitButton) submitButton.disabled = false; });
   });
 }
