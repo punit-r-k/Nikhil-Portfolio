@@ -241,6 +241,7 @@ if (contactForm) {
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(result.error || "Unable to send your message.");
         contactForm.reset();
+        contactForm.classList.add("is-sent");
         if (formStatus) formStatus.textContent = "Message sent. A copy has been emailed to you.";
       })
       .catch((error) => { if (formStatus) formStatus.textContent = error.message; })
