@@ -233,6 +233,28 @@ if (contactForm) {
       formStatus.textContent = "Opening your email app with this message prepared…";
     }
 
-    window.location.href = `mailto:Nikhil.murali103@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const submitButton = contactForm.querySelector("button[type=submit]");
+    if (formStatus) formStatus.textContent = "Sending your message...";
+    if (submitButton) submitButton.disabled = true;
+    fetch(contactForm.action, { method: "POST", headers: { Accept: "application/json", "Content-Type": "application/json" }, body: JSON.stringify(Object.fromEntries(data)) })
+      .then(async (response) => {
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || "Unable to send your message.");
+        contactForm.reset();
+        if (formStatus) {
+          formStatus.innerHTML = `<span class="form-status__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6.5 12.5 3.4 3.4 7.6-8"/></svg></span><span class="form-status__copy"><strong>Message sent</strong><span>Your message is on its way. A copy should arrive in your inbox shortly.</span></span>`;
+        }
+        contactForm.classList.add("is-sent");
+        const contactSection = document.querySelector("#contact-section");
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        requestAnimationFrame(() => {
+          if (!contactSection) return;
+          const headerHeight = document.querySelector(".site-header")?.offsetHeight || 0;
+          const sectionTop = contactSection.getBoundingClientRect().top + window.scrollY - headerHeight;
+          window.scrollTo({ top: sectionTop, behavior: reducedMotion ? "auto" : "smooth" });
+        });
+      })
+      .catch((error) => { if (formStatus) formStatus.textContent = error.message; })
+      .finally(() => { if (submitButton) submitButton.disabled = false; });
   });
 }
