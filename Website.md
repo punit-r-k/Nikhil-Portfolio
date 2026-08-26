@@ -23,7 +23,7 @@ Silver Skyline
 A Cottage in the Woods
 Media
 YouTube Link: https://www.youtube.com/@NikhilM-103
-Instagram: Link TBA
+Instagram: https://www.instagram.com/nikhil_composer?igsi=MWpqdHJ4OG1uemp6cg%3D%3D&utm_source=qr
 Linket: https://linketconnect.com/nikhil
 Contact
 Linket: https://linketconnect.com/nikhil

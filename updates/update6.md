@@ -1,4 +1,4 @@
-Anywhere on this website that mentions an Instagram account, here is the link to that profile: https://www.instagram.com/eeyore_4886?igsh=MWpqdHJ4OG1uemp6cg%3D%3D&utm_source=qr
+Anywhere on this website that mentions an Instagram account, here is the link to that profile: https://www.instagram.com/nikhil_composer?igsi=MWpqdHJ4OG1uemp6cg%3D%3D&utm_source=qr
 
 Under the page for Midnight Flames, modify the page to reflect the following information:
 Midnight Flames is an original composition by Nikhil Murali and Adrian Sisso.
